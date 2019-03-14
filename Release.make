@@ -38,7 +38,8 @@ prepare_release:
 	@mkdir -p host-packages
 
 	@#Build the host libraries.
-	@$(PYTHON) setup.py sdist bdist_wheel -d host-packages
+	@$(PYTHON) setup.py bdist_wheel -d host-packages
+	@$(PYTHON) setup.py sdist -d host-packages
 
 	@echo --- Preparing the release archives.
 	$(eval HOST_PACKAGE_FLAGS := $(addprefix --extra=, $(wildcard host-packages/*)))

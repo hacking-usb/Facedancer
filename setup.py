@@ -15,20 +15,22 @@ dynamic_options = {}
 version = None
 
 # Deduce version, if possible.
-if os.path.isfile('../VERSION'):
-    version = read('../VERSION')
+if os.path.isfile('./VERSION'):
+    version = read('./VERSION')
 else:
     dynamic_options['version_format'] = '{tag}.dev{commitcount}+git.{gitsha}'
     dynamic_options['setup_requires'] = ['setuptools-git-version']
 
 setup(
-    name='Facedancer',
+    name='facedancer',
     version=version,
     url='https://greatscottgadgets.com/greatfet/',
     license='BSD',
     tests_require=[''],
     install_requires=['pyusb'],
     description='Python library for emulating USB devices',
+    maintainer = "Katherine J. Temkin",
+    maintainer_email = "k@ktemkin.com",
     long_description=read('README.md'),
     packages=find_packages(),
     include_package_data=True,
